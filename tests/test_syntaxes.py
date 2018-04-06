@@ -27,8 +27,6 @@ class TestSyntaxes(TestCase):
         if failed_assertions > 0:
             self.fail('FAILED: {} of {} assertions in {} files failed'.format(failed_assertions, total_assertions, len(tests)))
 
-        # print()
-
     def run_tests_for_configuration(self, name, configuration, tests):
         p = system_path(TEST_PATH, name)
 
