@@ -14,12 +14,12 @@ def include_resource(resource):
     )
 
 
-def get_extensions(node, eval, arguments):
+def get_extensions(node, loader, eval):
     return [
         include_resource(file_path)
         for file_path in sublime.find_resources('*.yaml')
         if path.dirname(file_path).endswith('Packages/JSCustom/extensions')
-        and arguments.get(path.splitext(path.basename(file_path))[0], None)
+        and loader.context.get(path.splitext(path.basename(file_path))[0], None)
     ]
 
 get_extensions.raw = True
