@@ -1,15 +1,19 @@
 import sublime
 
 from os import path
+import sys
 
 from .paths import SOURCE_PATH
 from .util import merge
 
-def build_configurations(configurations, destination_path, output):
+def build_configurations(configurations, destination_path, output=sys.stdout):
     from yamlmacros import build
     from yamlmacros.src.error_highlighter import ErrorHighlighter
 
-    error_highlighter = ErrorHighlighter(output.window, 'YAMLMacros')
+    if hasattr(output, 'window'):
+        error_highlighter = ErrorHighlighter(output.window, 'YAMLMacros')
+    else:
+        error_highlighter = None
 
     source_text = sublime.load_resource(SOURCE_PATH)
 
@@ -25,11 +29,14 @@ def build_configurations(configurations, destination_path, output):
             error_highlighter=error_highlighter
         )
 
-def build_configuration(name, configuration, destination_path, output):
+def build_configuration(name, configuration, destination_path, output=sys.stdout):
     from yamlmacros import build
     from yamlmacros.src.error_highlighter import ErrorHighlighter
 
-    error_highlighter = ErrorHighlighter(output.window, 'YAMLMacros')
+    if hasattr(output, 'window'):
+        error_highlighter = ErrorHighlighter(output.window, 'YAMLMacros')
+    else:
+        error_highlighter = None
 
     source_text = sublime.load_resource(SOURCE_PATH)
 
