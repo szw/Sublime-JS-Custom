@@ -118,7 +118,7 @@ class BuildJsCustomSyntaxesCommand(sublime_plugin.WindowCommand):
                 source_text=source_text,
                 destination_path=path.join(SYNTAXES_PATH, name + '.sublime-syntax'),
                 arguments=merge({
-                    'name': 'JS Custom - %s' % name,
+                    'name': 'JavaScript %s' % name,
                     'file_path': SOURCE_PATH,
                 }, configurations[name]),
                 error_stream=panel,
