@@ -894,9 +894,6 @@ contexts:
     - match: instanceof{{identifier_break}}
       scope: keyword.operator.js
       push: expression-begin
-    - match: (?:in|of){{identifier_break}}
-      scope: keyword.operator.js
-      push: expression-begin
     - match: '&&|\|\|'
       scope: keyword.operator.logical.js
       push: expression-begin
