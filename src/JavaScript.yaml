@@ -1849,9 +1849,6 @@ contexts:
     - match: self{{identifier_break}}
       scope: variable.language.self.js
       pop: true
-    - match: (?:in|of){{identifier_break}}
-      scope: keyword.operator.js
-      pop: true
 
   dollar-identifiers:
     - match: '{{dollar_only_identifier}}'
