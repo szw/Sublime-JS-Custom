@@ -28,6 +28,10 @@ An object containing one or more named configurations. The keys should be the na
 
 An object specifying default [syntax options](#syntax-options) that will apply to all of your syntaxes. Your named configurations will override these defaults.
 
+### `embed_configuration`: object
+
+An object specifying a configuration to use when another syntax embeds the `source.js` scope.
+
 ### `auto_build`: boolean
 
 If true, JS Custom will automatically rebuild your syntaxes when you modify your user settings. Only syntaxes whose configurations have changed will be rebuilt. If `auto_build` is disabled, you will have to run the rebuild command manually.
@@ -84,7 +88,7 @@ Scope the [comma operator](https://developer.mozilla.org/en-US/docs/Web/JavaScri
 
 Highlight unquoted object keys as strings, matching [babel-sublime](https://github.com/babel/babel-sublime)'s behavior.
 
-#### `custom_tagged_literals`: object
+#### `custom_template_tags`: object
 
 Highlight user-defined [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 
@@ -96,7 +100,7 @@ Example:
 {
     "configurations": {
         "My Config": {
-            "custom_tagged_literals": {
+            "custom_template_tags": {
                 "style": "scope:source.css"
             }
         }
@@ -109,6 +113,8 @@ Then, if you use “JS Custom - My Config” to highlight the following code, th
 ```js
 const myStyle = style`div { color: red }`;
 ```
+
+By default, the special `embed_configuration` disables this to avoid syntax recursion errors.
 
 ### Metadata
 
